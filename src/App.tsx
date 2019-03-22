@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Data from "./feature/Data";
+import ListDecks from "./feature/ListDeck";
 
 const styles = StyleSheet.create({
   spinner: {
@@ -50,7 +51,7 @@ const HomePage = () => (
 
 const Navigator = createStackNavigator({
   HomePage: {
-    screen: HomePage,
+    screen: ListDecks,
     navigationOptions: {
       title: "Pokecard",
       headerStyle: {
