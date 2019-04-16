@@ -8,7 +8,6 @@ interface MyProps {
 }
 
 export const ListCard = (props: MyProps) => {
-  console.log(props.data);
   return (
     <View style={style.marginTop}>
       <FlatList
