@@ -1,25 +1,32 @@
 import * as React from "react";
 import { Sets } from "../model/Sets";
+import { Cards } from "../model/Card";
+import { EnumTypeModel } from "../model/EnumTypeModel";
 
-export type DataRenderFunctionProp = MyState
+export type DataRenderFunctionProp = MyState;
 
-export type DataRenderFunction = (prop: DataRenderFunctionProp) => React.ReactNode
+export type DataRenderFunction = (
+  prop: DataRenderFunctionProp
+) => React.ReactNode;
 
 export interface DataProps {
-    path: string
-    children: DataRenderFunction
+  retourType: string;
+  path: string;
+  children: DataRenderFunction;
 }
 
 interface MyState {
-    loading: boolean,
-    data: Sets | null,
-    error: boolean
+  loading: boolean;
+  dataSets: Sets[] | null;
+  dataCards: Cards[] | null;
+  error: boolean;
 }
 
-class Data extends React.Component<DataProps ,MyState> {
+class Data extends React.Component<DataProps, MyState> {
   state = {
     loading: false,
-    data: null,
+    dataSets: null,
+    dataCards: null,
     error: false
   };
 
@@ -31,7 +38,11 @@ class Data extends React.Component<DataProps ,MyState> {
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        this.setState({ data });
+        if (this.props.retourType == EnumTypeModel.Card) {
+          this.setState({ dataCards: data.cards });
+        } else if (this.props.retourType == EnumTypeModel.Set) {
+          this.setState({ dataCards: data.sets });
+        }
       })
       .catch(() => {
         this.setState({ error: true });
