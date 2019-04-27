@@ -16,8 +16,6 @@ const style = StyleSheet.create({
     resizeMode: "contain",
     width: Dimensions.get("window").width / 3,
     height: Dimensions.get("window").width / 2.5,
-    margin: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    marginBottom: 8
   }
 });

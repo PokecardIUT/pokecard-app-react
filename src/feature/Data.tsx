@@ -41,7 +41,7 @@ class Data extends React.Component<DataProps, MyState> {
         if (this.props.retourType == EnumTypeModel.Card) {
           this.setState({ dataCards: data.cards });
         } else if (this.props.retourType == EnumTypeModel.Set) {
-          this.setState({ dataCards: data.sets });
+          this.setState({ dataSets: data.sets.reverse() });
         }
       })
       .catch(() => {

@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-  Text,
   View,
   ActivityIndicator,
   StyleSheet,
@@ -8,6 +7,8 @@ import {
 } from "react-native";
 import Data from "../feature/Data";
 import { EnumTypeModel } from "../model/EnumTypeModel";
+import { ListSets } from "../component/ListSets";
+import { NavigationProps } from "../App";
 
 const styles = StyleSheet.create({
   spinner: {
@@ -20,11 +21,10 @@ function showToastError(message: string) {
   ToastAndroid.show(message, ToastAndroid.LONG);
 }
 
-export const SetsPage = () => (
+export const SetsPage = (props: NavigationProps) => (
   <View>
     <Data path="sets" retourType={EnumTypeModel.Set}>
       {data => {
-        // console.log(data);
         if (data.loading) {
           return (
             <View style={[styles.spinner]}>
@@ -41,7 +41,9 @@ export const SetsPage = () => (
             showToastError("Erreur lors du chargement des decks");
           }
         }
-        return <Text>List de deck</Text>;
+        return (
+          <ListSets data={data.dataSets ? data.dataSets : []} nav={props} />
+        );
       }}
     </Data>
   </View>
