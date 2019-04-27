@@ -3,17 +3,32 @@ import {
   View,
   ActivityIndicator,
   StyleSheet,
-  ToastAndroid
+  ToastAndroid,
+  TouchableOpacity
 } from "react-native";
 import Data from "../feature/Data";
 import { EnumTypeModel } from "../model/EnumTypeModel";
 import { ListSets } from "../component/ListSets";
 import { NavigationProps } from "../App";
+import { Icon } from "react-native-elements";
 
 const styles = StyleSheet.create({
   spinner: {
     alignItems: "center",
     justifyContent: "center"
+  },
+  floatButton: {
+    borderWidth: 1,
+    borderColor: "#056BB3",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 70,
+    position: "absolute",
+    bottom: 10,
+    right: 10,
+    height: 70,
+    backgroundColor: "#056BB3",
+    borderRadius: 100
   }
 });
 
@@ -42,7 +57,12 @@ export const SetsPage = (props: NavigationProps) => (
           }
         }
         return (
-          <ListSets data={data.dataSets ? data.dataSets : []} nav={props} />
+          <View>
+            <ListSets data={data.dataSets ? data.dataSets : []} nav={props} />
+            <TouchableOpacity style={styles.floatButton}>
+              <Icon name="add" size={30} color="#fff" />
+            </TouchableOpacity>
+          </View>
         );
       }}
     </Data>
