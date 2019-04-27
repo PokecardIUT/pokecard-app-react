@@ -59,8 +59,11 @@ export const SetsPage = (props: NavigationProps) => (
         return (
           <View>
             <ListSets data={data.dataSets ? data.dataSets : []} nav={props} />
-            <TouchableOpacity style={styles.floatButton}>
-              <Icon name="add" size={30} color="#fff" />
+            <TouchableOpacity
+              style={styles.floatButton}
+              onPress={() => props.navigation.navigate("FavoritePage")}
+            >
+              <Icon name="favorite" size={30} color="#fff" />
             </TouchableOpacity>
           </View>
         );
