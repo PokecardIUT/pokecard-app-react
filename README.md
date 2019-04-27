@@ -4,6 +4,7 @@
 
 - Affichage des decks
 - Affichages des cartes d'un decks
+- Affichage d'une carte
 - Ajout au favoris
 - Liste des favoris
 
@@ -31,5 +32,5 @@ Vous serez directement rediregé vers un lien avec un QR code afin lancer l'appl
 
 ## L'application
 
-Lorsque vous lancez l'application vous êtes directement dirigé vers la liste des decks possèder par l'api ([https://pokemontcg.io/](https://pokemontcg.io/)), si vous cliquez sur l'un de ces decks vous serez redirigé vers la liste des cartes possèdé par ce deck. Vous pouvez ajouter des cartes dans vos favoris en cliquant dessus.
+Lorsque vous lancez l'application vous êtes directement dirigé vers la liste des decks possèder par l'api ([https://pokemontcg.io/](https://pokemontcg.io/)), si vous cliquez sur l'un de ces decks vous serez redirigé vers la liste des cartes possèdé par ce deck. Vous pouvez ajouter des cartes dans vos favoris en cliquant dessus. Vous pouvez aussi voir la carte en grand si vous rester cliquer sur la carte.
 Sur l'écran des decks vous pouvez retrouvez un bouton en bas à droite de l'écran qui permet d'acceder à votre liste de vos cartes favoris.
